@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Article preview component</title>
+
+  <style>
+    body {
+      display: flex;
+      background-color: hsl(210, 46%, 95%);
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      width: 900px;
+      height: 360px;
+      background-color: rgb(255, 255, 255);
+      flex-direction: row;
+      display: flex;
+      border-radius: 10px;
+    }
+
+    .img {
+      width: 390px;
+      height: 360px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    .ava {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .conteudo {
+      height: 360px;
+      padding: 30px;
+      flex-grow: 1;
+    }
+
+    h1 {
+      font-family: "Manrope", sans-serif;
+      font-size: 22px;
+      color: hsl(217, 19%, 35%);
+      margin: px 0;
+    }
+
+    p {
+      font-family: "Manrope", sans-serif;
+      font-weight: 500;
+      color: hsl(214, 17%, 51%);
+      line-height: 22px;
+      margin-bottom: 20px;
+    }
+
+    .lado {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 15px;
+      font-family: "Manrope", sans-serif;
+      color: hsl(217, 19%, 35%);
+      margin: 0;
+    }
+
+    h3 {
+      color: hsl(214, 17%, 51%);
+      font-family: "Manrope", sans-serif;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    /* Container do círculo */
+    .circle-container {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: #000;
+      border: 2px solid #fff;
+      margin-left: 180px;
+      position: relative; /* Necessário para posicionamento do balão */
+    }
+
+    /* Balão com os ícones */
+    .tooltip {
+      display: none; /* Inicialmente oculto */
+      position: absolute;
+      top: 50px; /* Coloca o balão abaixo do círculo */
+      left: -60px; /* Ajusta a posição horizontal */
+      background-color: #333;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .tooltip svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    /* Exibir balão ao passar o mouse sobre o círculo */
+    .circle-container:hover .tooltip {
+      display: block;
+    }
+
+    /* SVG do círculo (ícone) */
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+      cursor: pointer;
+      transition: transform 0.3s ease, fill 0.3s ease;
+    }
+
+    /* Efeito de aumento ao passar o mouse */
+    .svg-icon:hover {
+      transform: scale(1.2);
+    }
+
+    /* Efeito de diminuição ao clicar */
+    .svg-icon:active {
+      transform: scale(0.9);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="img">
+      <img src="images/drawers.jpg" alt="Image representing furniture">
+    </div>
+
+    <div class="conteudo">
+      <h1>Shift the overall look and feel by <br> adding these wonderful touches to <br>furniture in your home</h1>
+      <p>Ever been in a room and felt like something was missing? <br> Perhaps it felt slightly bare and uninviting. I’ve got some <br> simple tips to help you make any room feel complete.</p>
+
+      <div class="lado">
+        <img class="ava" src="images/avatar-michelle.jpg" alt="Avatar of Michelle Appleton">
+        
+        <div class="cima">
+          <h2>Michelle Appleton</h2>
+          <h3>28 Jun 2020</h3>
+        </div>
+
+        <!-- Círculo com o balão -->
+        <div class="circle-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 13" class="svg-icon">
+            <path fill="#FFF" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/>
+          </svg>
+
+          <!-- Balão com ícones das redes sociais -->
+          <div class="tooltip">
+            <a href="#" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0z"/>
+                <path fill="white" d="M20 2.172a8.192 8.192 0 01-2.357.646 4.11 4.11 0 001.804-2.27 8.22 8.22 0 01-2.605.996A4.096 4.096 0 0013.847.248c-2.65 0-4.596 2.472-3.998 5.037A11.648 11.648 0 011.392 1a4.109 4.109 0 001.27 5.478 4.086 4.086 0 01-1.858-.513c-.045 1.9 1.318 3.679 3.291 4.075a4.113 4.113 0 01-1.853.07 4.106 4.106 0 003.833 2.849A8.25 8.25 0 010 14.658a11.616 11.616 0 006.29 1.843c7.618 0 11.922-6.434 11.663-12.205A8.354 8.354 0 0020 2.172z"/>
+              </svg>
+            </a>
+            <a href="#" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0z"/>
+                <path fill="white" d="M10 0C4.478 0 0 4.477 0 10c0 4.237 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.182-.78 1.172-4.97 1.172-4.97s-.299-.6-.299-1.486c0-1.39.806-2.428 1.81-2.428.852 0 1.264.64 1.264 1.404 0 .854-.493 2.118-.746 3.137-.36 1.274-.571 1.795-.979 2.366-.797 1.04-2.148 1.462-3.419 1.225-.155-.748-.587-1.474-1.304-1.755.707-.582 1.347-1.28 1.423-2.376 1.264-.047 2.509-.453 3.149-1.598 1.195-1.714 1.35-4.468.462-6.688A9.986 9.986 0 0010 0z"/>
+              </svg>
+            </a>
+            <a href="#" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0z"/>
+                <path fill="white" d="M12 2.248c5.64 0 10.2 4.56 10.2 10.2 0 5.64-4.56 10.2-10.2 10.2-5.64 0-10.2-4.56-10.2-10.2 0-5.64 4.56-10.2 10.2-10.2zm0 18.3c4.46 0 8.1-3.66 8.1-8.1s-3.66-8.1-8.1-8.1-8.1 3.66-8.1 8.1 3.66 8.1 8.1 8.1zm-1.35-5.52v-5.97h-2.45v5.97h2.45zm1.2-9.17c.41 0 .75.34.75.75v3.86c0 .41-.34.75-.75.75-.41 0-.75-.34-.75-.75v-3.86c0-.41.34-.75.75-.75z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
